@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\News;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/news/', function () {
-	return view('news');
+	$news = new News();
+	return view('news', ['data' => $news->all()]);
 });
